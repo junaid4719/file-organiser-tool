@@ -5,7 +5,6 @@ Run with: pytest test_organiser.py
 
 import os
 import json
-import shutil
 import pytest
 from organiser import FileOrganiser
 
@@ -30,7 +29,7 @@ def temp_folder(tmp_path):
 def test_default_config_created(temp_folder):
     """If no config.json exists, one should be created automatically."""
     config_path = os.path.join(temp_folder, "config.json")
-    organiser = FileOrganiser(target_folder=temp_folder, config_path=config_path)
+    FileOrganiser(target_folder=temp_folder, config_path=config_path)
 
     assert os.path.exists(config_path)
     with open(config_path) as f:
