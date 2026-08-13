@@ -1,0 +1,41 @@
+name: CI
+
+# Run this workflow on every push and every pull request into main
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Check out the repository code
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Set up Python
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      # Install dependencies
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pytest flake8 black
+
+      # Check code formatting (fails the build if code isn't formatted)
+      - name: Check formatting with Black
+        run: black --check .
+
+      # Lint for errors and style issues
+      - name: Lint with flake8
+        run: flake8 . --max-line-length=100 --extend-ignore=E203
+
+      # Run the test suite
+      - name: Run tests
+        run: pytest test_organiser.py -v
