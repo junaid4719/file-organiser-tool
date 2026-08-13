@@ -83,9 +83,7 @@ class FileOrganiser:
 
             try:
                 os.makedirs(destination_folder_path, exist_ok=True)
-                destination_file_path = os.path.join(
-                    destination_folder_path, filename
-                )
+                destination_file_path = os.path.join(destination_folder_path, filename)
 
                 # Avoid overwriting a file that already exists there
                 if os.path.exists(destination_file_path):
