@@ -16,19 +16,18 @@ Manually sorting downloaded or exported files is repetitive and error-prone. Thi
 
 ## How it works
 
-```
 Scan target folder
-        ↓
+↓
 Read file extension
-        ↓
+↓
 Look up destination folder in config.json
-        ↓
+↓
 Create destination folder if needed
-        ↓
+↓
 Move file (skip if a duplicate already exists there)
-        ↓
+↓
 Log the result
-```
+
 
 ## Requirements
 
@@ -38,7 +37,7 @@ Log the result
 ## Installation
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/file-organiser-tool.git
+git clone https://github.com/junaid4719/file-organiser-tool.git
 cd file-organiser-tool
 pip install pytest
 ```
@@ -47,17 +46,17 @@ pip install pytest
 
 1. Open `organiser.py` and set `TARGET_FOLDER` to the folder you want organised.
 2. Run the script:
-   ```bash
+```bash
    python organiser.py
-   ```
+```
 3. On first run, a default `config.json` is created automatically if one doesn't exist. Edit it to customise which extensions go where, e.g.:
-   ```json
+```json
    {
        ".pdf": "Documents",
        ".jpg": "Images",
        ".zip": "Archives"
    }
-   ```
+```
 4. Check `organiser.log` to see exactly what was moved.
 
 ## Running the tests
@@ -68,22 +67,20 @@ pytest test_organiser.py -v
 
 ## Project structure
 
-```
 file-organiser-tool/
-├── organiser.py          # Main application logic
-├── test_organiser.py     # Unit tests
-├── config.json            # Auto-generated sorting rules (created on first run)
-├── organiser.log          # Auto-generated log file (created on first run)
+├── organiser.py # Main application logic
+├── test_organiser.py # Unit tests
+├── config.json # Auto-generated sorting rules (created on first run)
+├── organiser.log # Auto-generated log file (created on first run)
 └── README.md
-```
+
 
 ## Possible future improvements
 
 - Watch a folder continuously (using `watchdog`) instead of running as a one-off script
 - Add a command-line interface for choosing the target folder without editing code
-- Add a GitHub Actions workflow to run tests and linting automatically on every push
 - Package as a standalone executable
 
-## License
+## Licence
 
 MIT
