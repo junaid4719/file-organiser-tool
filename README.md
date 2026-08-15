@@ -39,7 +39,7 @@ Log the result
 ```bash
 git clone https://github.com/junaid4719/file-organiser-tool.git
 cd file-organiser-tool
-pip install pytest
+pip install -r requirements.txt
 ```
 
 ## Usage

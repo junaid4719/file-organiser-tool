@@ -108,7 +108,7 @@ class FileOrganiser:
 
 if __name__ == "__main__":
     # Change this to whichever folder you want to organise
-    TARGET_FOLDER = r"C:\Users\YourUsername\Downloads"
+    TARGET_FOLDER = "test-folder"
 
     organiser = FileOrganiser(target_folder=TARGET_FOLDER)
     organiser.organise()
